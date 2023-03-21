@@ -49,6 +49,7 @@ export const movieSlice = createSlice({
     builder
       .addCase(fetchUpComming.pending, (state) => {
         state.upComing.status = "loading";
+        state.upComing.data = [];
       })
       .addCase(fetchUpComming.fulfilled, (state, action) => {
         state.upComing.status = "idle";
@@ -60,6 +61,7 @@ export const movieSlice = createSlice({
       })
       .addCase(fetchlatest.pending, (state) => {
         state.latest.status = "loading";
+        state.latest.data = [];
       })
       .addCase(fetchlatest.fulfilled, (state, action) => {
         state.latest.status = "idle";
@@ -71,6 +73,7 @@ export const movieSlice = createSlice({
       })
       .addCase(fetchEvents.pending, (state) => {
         state.events.status = "loading";
+        state.events.data = [];
       })
       .addCase(fetchEvents.fulfilled, (state, action) => {
         state.events.status = "idle";

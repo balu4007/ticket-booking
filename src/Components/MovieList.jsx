@@ -1,4 +1,4 @@
-import { Stack, Typography } from "@mui/material";
+import { Box, CircularProgress, Stack, Typography } from "@mui/material";
 import React from "react";
 import MovieCard from "./MovieCard";
 
@@ -8,6 +8,18 @@ const MovieList = ({ movies, title }) => {
       <Typography variant="h6" sx={{ textAlign: "center" }}>
         {title}
       </Typography>
+      {movies.status === "loading" && (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "50vh",
+          }}
+        >
+          <CircularProgress />
+        </Box>
+      )}
       <Stack
         direction={"row"}
         flexWrap="wrap"
