@@ -11,12 +11,16 @@ const MovieCard = ({ movie }) => {
         border: "1px solid #ccc",
         padding: ".5rem",
         borderRadius: "10px",
+        cursor: "pointer",
+      }}
+      onClick={() => {
+        navigate(`/movie/${movie._id}`);
       }}
       gap="10px"
     >
       <img
         onClick={() => {
-          navigate(`/movie/${movie._id}`);
+          localStorage.setItem(movie._id, JSON.stringify(movie));
         }}
         src={movie.imageUrl}
         alt={movie.name}
@@ -26,7 +30,15 @@ const MovieCard = ({ movie }) => {
       />
       <Rating value={movie.rate} readOnly />
       <Typography>{movie.name}</Typography>
-      <Button variant="outlined">Book</Button>
+      <Button
+        variant="outlined"
+        onClick={(event) => {
+          event.stopPropagation();
+          console.log("clicked Book!!");
+        }}
+      >
+        Book
+      </Button>
     </Stack>
   );
 };

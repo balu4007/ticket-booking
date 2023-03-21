@@ -1,21 +1,36 @@
+import { Box, Button, Rating, Stack, Typography } from "@mui/material";
 import React from "react";
-import { useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { selectMovies } from "../features/movie/movieSlice";
 
 const MovieDetail = () => {
   const { id } = useParams();
-  const movies = useSelector(selectMovies);
-  const movielist = [
-    ...movies.upComing.data,
-    ...movies.latest.data,
-    ...movies.events.data,
-  ];
-  console.log("movielist", movielist);
-  const movie = movielist.find((movie) => movie._id === id);
-  console.log(movie);
-
-  return <div>MovieDetail</div>;
+  const movie = JSON.parse(localStorage.getItem(id));
+  return (
+    <Stack direction={"row"} sx={{ paddingY: "3rem", gap: "10px" }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flex: 2,
+        }}
+      >
+        <img
+          src={movie.imageUrl}
+          alt={movie.name}
+          loading="lazy"
+          style={{ maxHeight: "500px", borderRadius: "4px" }}
+        />
+      </Box>
+      <Stack sx={{ flex: 1 }} gap="0.5rem">
+        <Typography variant="h4">{movie.name}</Typography>
+        <Rating value={movie.rate} readOnly />
+        <Typography variant="p">{movie.language}</Typography>
+        <Typography variant="p">{movie.type}</Typography>
+        <Button variant="outlined">Book</Button>
+      </Stack>
+    </Stack>
+  );
 };
 
 export default MovieDetail;
