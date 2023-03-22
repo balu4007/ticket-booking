@@ -127,11 +127,7 @@ const BookTickets = () => {
               border: "1px solid #ccc",
               padding: ".5rem",
               borderRadius: "10px",
-              cursor: "pointer",
               mx: "auto",
-            }}
-            onClick={() => {
-              navigate(`/movie/${movie._id}`);
             }}
             gap="10px"
           >
