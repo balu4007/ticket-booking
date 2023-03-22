@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Modal,
+  Rating,
   TextField,
   ToggleButton,
   ToggleButtonGroup,
@@ -118,7 +119,31 @@ const BookTickets = () => {
             </Button>
           </Stack>
         </Box>
-        <Box sx={{ flex: 1 }}></Box>
+        <Box sx={{ flex: 1 }}>
+          <Stack
+            sx={{
+              width: "250px",
+              border: "1px solid #ccc",
+              padding: ".5rem",
+              borderRadius: "10px",
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              navigate(`/movie/${movie._id}`);
+            }}
+            gap="10px"
+          >
+            <img
+              src={movie.imageUrl}
+              alt={movie.name}
+              height={"320px"}
+              width={"100%"}
+              loading="lazy"
+            />
+            <Rating value={movie.rate} readOnly />
+            <Typography>{movie.name}</Typography>
+          </Stack>
+        </Box>
       </Stack>
       <Modal
         open={open}
