@@ -25,6 +25,7 @@ const MovieList = ({ movies, title }) => {
         flexWrap="wrap"
         justifyContent={"space-evenly"}
         sx={{ padding: "1rem" }}
+        gap="1rem"
       >
         {movies.data?.map((movie) => (
           <MovieCard key={movie._id} movie={movie} />

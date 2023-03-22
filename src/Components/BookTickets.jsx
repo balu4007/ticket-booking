@@ -58,16 +58,17 @@ const BookTickets = () => {
 
   return (
     <>
+      <Typography variant="h6">Book Tickets</Typography>
       <Stack direction={"row"} gap="1rem">
         <Box
           sx={{
+            mt: "1rem",
             display: "flex",
             flexDirection: "column",
-            gap: "10px",
+            gap: "1.5rem",
             flex: 1,
           }}
         >
-          <Typography variant="h6">Book Tickets</Typography>
           <input
             style={{
               padding: "10px",
