@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 
 const MovieCard = ({ movie }) => {
   const navigate = useNavigate();
+  localStorage.setItem(movie._id, JSON.stringify(movie));
   return (
     <Stack
       sx={{
@@ -19,9 +20,6 @@ const MovieCard = ({ movie }) => {
       gap="10px"
     >
       <img
-        onClick={() => {
-          localStorage.setItem(movie._id, JSON.stringify(movie));
-        }}
         src={movie.imageUrl}
         alt={movie.name}
         height={"320px"}
@@ -34,10 +32,10 @@ const MovieCard = ({ movie }) => {
         variant="outlined"
         onClick={(event) => {
           event.stopPropagation();
-          console.log("clicked Book!!");
+          navigate(`/book-tickets/${movie._id}`);
         }}
       >
-        Book
+        Book tickets
       </Button>
     </Stack>
   );

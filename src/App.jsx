@@ -1,6 +1,7 @@
 import { Container } from "@mui/material";
 import { Route, Routes } from "react-router";
 import "./App.css";
+import BookTickets from "./Components/BookTickets";
 import Events from "./Components/Events";
 import Home from "./Components/Home";
 import LatestMovies from "./Components/LatestMovies";
@@ -19,6 +20,7 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/upcomming" element={<UpcomingMovies />} />
           <Route path="/movie/:id" element={<MovieDetail />} />
+          <Route path="/book-tickets/:id" element={<BookTickets />} />
         </Routes>
       </Container>
     </>
