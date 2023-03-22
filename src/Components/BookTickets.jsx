@@ -44,7 +44,6 @@ const BookTickets = () => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: "70vw",
     bgcolor: "background.paper",
     border: "2px solid #000",
     boxShadow: 24,
@@ -150,31 +149,31 @@ const BookTickets = () => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Box sx={{ display: "flex", gap: "10px" }}>
-            <Box sx={{ flex: 1 }}>
-              <Typography id="modal-modal-title" variant="h6" component="h2">
-                Tickets Confirmed
-              </Typography>
-              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                Your tickets are confirmed for {movie.name} on{" "}
-                {dayjs(values.date).format("DD MMM YYYY")} at{" "}
-                {Timingdata[values.time]}
-              </Typography>
-            </Box>
-            <Box sx={{ flex: 1 }}>
-              <QRCode
-                value={JSON.stringify({ ...values, ...movie })}
-                style={{ height: "200px", maxWidth: "100%", width: "200px" }}
-              />
-            </Box>
-          </Box>
           <Box
             sx={{
+              flex: 1,
               display: "flex",
-              alignItems: "center",
               justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+              gap: "1rem",
             }}
           >
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              Tickets Confirmed
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              Your tickets are confirmed for {movie.name} on{" "}
+              {dayjs(values.date).format("DD MMM YYYY")} at{" "}
+              {Timingdata[values.time]}
+            </Typography>
+            <Typography variant="h6" component="h2">
+              Scane this QR Code to enter the theatre
+            </Typography>
+            <QRCode
+              value={JSON.stringify({ ...values, ...movie })}
+              style={{ height: "200px", maxWidth: "100%", width: "200px" }}
+            />
             <Button
               variant="outlined"
               sx={{ mt: 2, textAlign: "center", px: 20 }}
