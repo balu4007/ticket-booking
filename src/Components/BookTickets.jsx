@@ -58,7 +58,7 @@ const BookTickets = () => {
 
   return (
     <>
-      <Stack direction={"row"}>
+      <Stack direction={"row"} gap="1rem">
         <Box
           sx={{
             display: "flex",
@@ -119,7 +119,7 @@ const BookTickets = () => {
             </Button>
           </Stack>
         </Box>
-        <Box sx={{ flex: 1 }}>
+        <Box sx={{ flex: 1, width: "100%" }}>
           <Stack
             sx={{
               width: "250px",
@@ -127,6 +127,7 @@ const BookTickets = () => {
               padding: ".5rem",
               borderRadius: "10px",
               cursor: "pointer",
+              mx: "auto",
             }}
             onClick={() => {
               navigate(`/movie/${movie._id}`);
