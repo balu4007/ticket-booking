@@ -45,13 +45,12 @@ const BookTickets = () => {
     left: "50%",
     transform: "translate(-50%, -50%)",
     bgcolor: "background.paper",
-    border: "2px solid #000",
+    border: "1px solid #ccc",
     boxShadow: 24,
     p: 4,
   };
 
   const handelSubmit = () => {
-    console.log(values);
     setOpen(true);
   };
 
@@ -99,13 +98,7 @@ const BookTickets = () => {
             onChange={(e) => setValues({ ...values, tickets: e.target.value })}
           />
           <Stack direction={"row"} gap="1rem">
-            <Button
-              variant="contained"
-              sx={{ flex: 1 }}
-              onClick={() => {
-                handelSubmit();
-              }}
-            >
+            <Button variant="contained" sx={{ flex: 1 }} onClick={handelSubmit}>
               Confirm
             </Button>
             <Button
@@ -149,16 +142,7 @@ const BookTickets = () => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Box
-            sx={{
-              flex: 1,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              flexDirection: "column",
-              gap: "1rem",
-            }}
-          >
+          <Stack gap={"1rem"} alignItems={"center"}>
             <Typography id="modal-modal-title" variant="h6" component="h2">
               Tickets Confirmed
             </Typography>
@@ -181,7 +165,7 @@ const BookTickets = () => {
             >
               OK
             </Button>
-          </Box>
+          </Stack>
         </Box>
       </Modal>
     </>
